@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/FAQFragment"
+        android:name="com.learnvinesh.getflytasks.FAQFragment"
+        android:label="FAQ"
+        tools:layout="@layout/fragment_f_a_q" >
+        <action
+            android:id="@+id/action_FAQFragment_to_pastEventsFragment"
+            app:destination="@id/pastEventsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pastEventsFragment"
+        android:name="com.learnvinesh.getflytasks.PastEventsFragment"
+        android:label="Past Events"
+        tools:layout="@layout/fragment_past_events" >
+        <action
+            android:id="@+id/action_pastEventsFragment_to_FAQFragment"
+            app:destination="@id/FAQFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.learnvinesh.getflytasks.HomeFragment"
+        android:label="Higher Studies"
+        tools:layout="@layout/fragment_home" />
+</navigation>
