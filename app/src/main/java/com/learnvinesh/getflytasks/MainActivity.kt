@@ -1,6 +1,8 @@
 package com.learnvinesh.getflytasks
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+//        val customTitleView = layoutInflater.inflate(R.layout.custom_title, null)
+//        supportActionBar?.customView = customTitleView
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
@@ -55,6 +60,13 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.toolbar_menu, menu)
+        return true
     }
 
     override fun onSupportNavigateUp(): Boolean {

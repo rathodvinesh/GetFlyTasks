@@ -5,9 +5,16 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/toolbar</item>
         <item name="colorSecondary">@color/button</item>
+        <item name="fontFamily">@font/source_serif_pro</item>
     </style>
 
     <style name="Theme.GetFlyTasks" parent="Base.Theme.GetFlyTasks" >
         <item name="colorPrimary">@color/toolbar</item>
     </style>
+
+
+    <style name="ToolbarTitleCentered" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.learnvinesh.getflytasks
 
+import android.app.Dialog
 import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.learnvinesh.getflytasks.adapter.FAQRecyclerViewAdapter
+import com.learnvinesh.getflytasks.databinding.DailogBoxBinding
 import com.learnvinesh.getflytasks.databinding.FragmentFAQBinding
 import com.learnvinesh.getflytasks.models.FAQQuestions
 
@@ -48,9 +50,32 @@ class FAQFragment : Fragment() {
 
         binding.fab.setOnClickListener {
             // Handle the new question logic here
-            Toast.makeText(requireContext(),"Still Working on It!!",Toast.LENGTH_SHORT).show()
+            showPostQuestionDialog()
         }
     }
+    private fun showPostQuestionDialog() {
+        val dialog = Dialog(requireContext())
+        val dialogBinding = DailogBoxBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        dialogBinding.button.setOnClickListener {
+            val question = dialogBinding.editTextTextMultiLine.text.toString().trim()
+            if (question.isNotEmpty()) {
+                // Handle the new question logic here
+                Toast.makeText(requireContext(), "Question Posted: $question", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            } else {
+                Toast.makeText(requireContext(), "Please enter a question", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        dialogBinding.imageView3.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

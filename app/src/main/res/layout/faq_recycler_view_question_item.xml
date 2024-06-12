@@ -13,30 +13,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="4dp">
 
             <TextView
                 android:id="@+id/questionTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="start"
                 android:text="Question"
                 android:textColor="@color/toolbar"
-                android:gravity="start"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/expandableImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_add_24"/>
+                android:src="@drawable/baseline_add_24"
+                app:tint="@color/button" />
         </LinearLayout>
 
         <TextView
@@ -46,7 +49,7 @@
             android:padding="4dp"
             android:textColor="@color/toolbar"
             android:text="Answer"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
