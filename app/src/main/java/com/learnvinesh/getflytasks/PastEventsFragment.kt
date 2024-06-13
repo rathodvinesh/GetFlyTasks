@@ -16,17 +16,17 @@ class PastEventsFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var seminarAdapter: PastEventsRecyclerViewAdapter
     private val seminarList = listOf(
-        PastEvents("Seminar on AI", "Description of AI Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
-        PastEvents("Seminar on ML", "Description of ML Seminar", "Feb 24"),
+        PastEvents("Seminar on AI", "Description of AI Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
+        PastEvents("Seminar on ML", "Description of ML Seminar", "24 Feb"),
         // Add more seminars here
     )
 
@@ -44,6 +44,8 @@ class PastEventsFragment : Fragment() {
         binding.pastEventsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         seminarAdapter = PastEventsRecyclerViewAdapter(seminarList)
         binding.pastEventsRecyclerView.adapter = seminarAdapter
+
+        (requireActivity() as MainActivity).setToolbarTitle("Past Events")
     }
 
     override fun onDestroyView() {

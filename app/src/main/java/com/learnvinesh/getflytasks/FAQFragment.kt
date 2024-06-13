@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.learnvinesh.getflytasks.adapter.FAQRecyclerViewAdapter
 import com.learnvinesh.getflytasks.databinding.DailogBoxBinding
 import com.learnvinesh.getflytasks.databinding.FragmentFAQBinding
@@ -30,7 +32,6 @@ class FAQFragment : Fragment() {
         FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
         FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
         FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button.")
-        // Add more FAQs here
     )
 
     override fun onCreateView(
@@ -48,20 +49,22 @@ class FAQFragment : Fragment() {
         binding.faqRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.faqRecyclerView.adapter = faqAdapter
 
+        binding.fab.setColorFilter(ContextCompat.getColor(requireContext(), android.R.color.white))
+
+        (requireActivity() as MainActivity).setToolbarTitle("FAQ")
+
         binding.fab.setOnClickListener {
-            // Handle the new question logic here
             showPostQuestionDialog()
         }
     }
     private fun showPostQuestionDialog() {
-        val dialog = Dialog(requireContext())
+        val dialog = Dialog(requireContext(), R.style.CustomDialogTheme)
         val dialogBinding = DailogBoxBinding.inflate(layoutInflater)
         dialog.setContentView(dialogBinding.root)
 
         dialogBinding.button.setOnClickListener {
             val question = dialogBinding.editTextTextMultiLine.text.toString().trim()
             if (question.isNotEmpty()) {
-                // Handle the new question logic here
                 Toast.makeText(requireContext(), "Question Posted: $question", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             } else {

@@ -1,10 +1,12 @@
 package com.learnvinesh.getflytasks.adapter
 
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Visibility
+import com.learnvinesh.getflytasks.R
 import com.learnvinesh.getflytasks.databinding.FaqRecyclerViewQuestionItemBinding
 import com.learnvinesh.getflytasks.models.FAQQuestions
 
@@ -34,10 +36,20 @@ class FAQRecyclerViewAdapter(private var faqs:List<FAQQuestions>):RecyclerView.A
             val isExapndable:Boolean = quesList.isExpandable
             anstv.visibility = if (isExapndable) View.VISIBLE else View.GONE
 
+            img.setImageResource(if (quesList.isExpandable) R.drawable.baseline_close_24 else R.drawable.baseline_add_24)
+
             img.setOnClickListener {
+
+                val newExpandableState = !quesList.isExpandable
+
+                // Rotate the image
+                val rotation = if (newExpandableState) 90f else 0f
+                ObjectAnimator.ofFloat(img, "rotation", rotation).setDuration(300).start()
+
                 isAnyItemExpanded(position)
-                quesList.isExpandable = !quesList.isExpandable
+                quesList.isExpandable = newExpandableState
                 notifyItemChanged(position,Unit)
+
             }
         }
     }

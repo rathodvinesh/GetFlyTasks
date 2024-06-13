@@ -1,5 +1,7 @@
 package com.learnvinesh.getflytasks
 
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -7,8 +9,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -32,8 +36,18 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-//        val customTitleView = layoutInflater.inflate(R.layout.custom_title, null)
-//        supportActionBar?.customView = customTitleView
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.toolbarTitle.text = binding.toolbar.title
+
+//        supportFragmentManager.addOnBackStackChangedListener {
+//            val fragment = getCurrentFragment()
+//            fragment?.let {
+//                if (it is HomeFragment) {
+//                    setToolbarTitle(it.toString())
+//                }
+//            }
+//        }
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -61,11 +75,34 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+//        customizeNavigationIcon()
+
     }
+
+
+    private fun customizeNavigationIcon() {
+        binding.toolbar.post{
+            val navigationIcon = binding.toolbar.navigationIcon
+            val circleBackground = ContextCompat.getDrawable(this, R.drawable.circle_bg_toolbar)
+
+            val layers = arrayOf<Drawable>(circleBackground!!, navigationIcon!!)
+            val layerDrawable = LayerDrawable(layers)
+            layerDrawable.setLayerInset(1, 12, 12, 12, 12)
+
+            binding.toolbar.navigationIcon = layerDrawable
+        }
+    }
+
+
+    fun setToolbarTitle(title: String) {
+        binding.toolbarTitle.text = title
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.toolbar_menu, menu)
+
         return true
     }
 
