@@ -22,16 +22,11 @@ class FAQFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var faqAdapter: FAQRecyclerViewAdapter
     private val faqList = listOf(
-        FAQQuestions("What is this app?", "This app provides information about higher studies."),
-        FAQQuestions("How can I raise a new question khhvjyhgjyhghijuhygiyjbjuo?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button."),
-        FAQQuestions("How can I raise a new question?", "Click the 'Raise a New Question' button.")
+        FAQQuestions("What is the purpose of this app?", "This app helps users plan and manage their study abroad journey."),
+        FAQQuestions("How do I search for universities?", "You can use the search feature to find universities by name, location, or programs offered."),
+        FAQQuestions("What resources are available for scholarship information?", "The app provides a dedicated section with information on various scholarships available for international students."),
+        FAQQuestions("How do I connect with other users?", "You can connect with other users through the community forum and messaging features within the app."),
+        FAQQuestions("What support is available if I encounter issues?", "Our support team is available 24/7 through the 'Contact Us' section in the app for any assistance you may need.")
     )
 
     override fun onCreateView(

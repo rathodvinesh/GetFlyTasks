@@ -3,6 +3,7 @@ package com.learnvinesh.getflytasks.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.learnvinesh.getflytasks.R
@@ -14,6 +15,7 @@ class PastEventsRecyclerViewAdapter(private var eventsList:List<PastEvents>):Rec
         val titleTV:TextView = itemView.findViewById(R.id.titleTextView)
         val descTV:TextView = itemView.findViewById(R.id.descriptionTextView)
         val dateTV:TextView = itemView.findViewById(R.id.circleView)
+        val imgView: ImageView = itemView.findViewById(R.id.pastSeminarIV)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PastEventViewHolder {
@@ -31,6 +33,7 @@ class PastEventsRecyclerViewAdapter(private var eventsList:List<PastEvents>):Rec
             titleTV.text=currentPosi.title
             descTV.text=currentPosi.desc
             dateTV.text=currentPosi.date
+            imgView.setImageResource(currentPosi.imgResID)
         }
     }
 }
