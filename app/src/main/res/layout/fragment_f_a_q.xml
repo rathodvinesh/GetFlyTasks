@@ -25,7 +25,7 @@
             android:text="We’re here to help you with anything and everything"
             android:textAlignment="textStart"
             android:textColor="@color/toolbar"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold">
 
         </TextView>

@@ -59,23 +59,22 @@
 
         <TextView
             android:id="@+id/circleView"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="end|center"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginTop="152dp"
             android:background="@drawable/circle"
             android:fontFamily="@font/source_serif_pro"
             android:gravity="center"
             android:lineSpacingExtra="0sp"
-            android:text="24 Feb"
+            android:text="24\nFeb"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:translationX="-18dp"
             android:translationY="-18dp"
-            app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pastSeminarIV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

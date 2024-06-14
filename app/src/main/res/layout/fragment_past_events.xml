@@ -12,7 +12,9 @@
         android:id="@+id/past_events_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="28dp"
+        android:paddingLeft="28dp"
+        android:paddingRight="28dp"
+        android:paddingBottom="28dp"
         tools:layout_weight="1"
         tools:listitem="@layout/past_seminar_recycler_view_item"/>
 
