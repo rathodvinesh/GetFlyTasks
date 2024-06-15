@@ -23,7 +23,7 @@
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/backgroundcheck" />
+            android:src="@drawable/event5"/>
 
         <TextView
             android:id="@+id/titleTextView"
@@ -69,7 +69,7 @@
             android:lineSpacingExtra="0sp"
             android:text="24\nFeb"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:translationX="-18dp"
             android:translationY="-18dp"

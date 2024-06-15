@@ -53,11 +53,7 @@ class FAQFragment : Fragment() {
         }
 
         binding.searchBarFAQ.setOnClickListener {
-            // Handle the click event
             Toast.makeText(requireContext(), "SearchBar clicked", Toast.LENGTH_SHORT).show()
-
-            // Optionally, open a search activity or show a search dialog
-            // startActivity(Intent(this, SearchActivity::class.java))
         }
     }
     private fun showPostQuestionDialog() {
